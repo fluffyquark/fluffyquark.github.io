@@ -1,0 +1,5 @@
+#!/bin/sh
+# Blocks commits that contain private IPs, key material, or likely tokens.
+PAT='(^|[^0-9])(10\.[0-9]+\.[0-9]+\.[0-9]+|192\.168\.[0-9]+\.[0-9]+|172\.(1[6-9]|2[0-9]|3[01])\.[0-9]+\.[0-9]+)|BEGIN [A-Z ]*PRIVATE KEY|ghp_[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|(api[_-]?key|secret|password|token)[[:space:]]*[:=][[:space:]]*[^[:space:]]{6,}'
+HITS=$(git diff --cached -U0 --diff-filter=AM | grep '^+' | grep -v '^+++' | grep -E -i "$PAT" | grep -v -E '10\.0\.0\.x')
+if [ -n "$HITS" ]; then echo "Commit blocked, possible sensitive data:"; echo "$HITS"; exit 1; fi

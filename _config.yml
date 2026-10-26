@@ -1,0 +1,14 @@
+title: "Ben's Security Notebook"
+description: "Linux, Windows, and what I learn by breaking and fixing things safely."
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+# url / baseurl: set after the repo name is final
+# url: "https://USERNAME.github.io"
+# baseurl: ""
+exclude:
+  - scripts/
+  - README.md
+  - Gemfile
+  - Gemfile.lock
