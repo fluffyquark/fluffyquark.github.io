@@ -5,8 +5,8 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 # url / baseurl: set after the repo name is final
-# url: "https://USERNAME.github.io"
-# baseurl: ""
+url: "https://fluffyquark.github.io"
+baseurl: ""
 exclude:
   - scripts/
   - README.md
