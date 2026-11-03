@@ -1,0 +1,12 @@
+- slug: tools
+  title: tools
+  blurb: Small things I built, how they work, and why.
+- slug: homelab
+  title: homelab
+  blurb: Infrastructure, services and the lessons of running them.
+- slug: detection
+  title: detection
+  blurb: How systems fail, what it looks like, and how defenders spot it.
+- slug: lessons
+  title: lessons
+  blurb: What broke, what surprised me, what I would do differently.

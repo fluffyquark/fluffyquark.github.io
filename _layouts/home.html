@@ -1,0 +1,42 @@
+---
+layout: default
+---
+<section class="hero">
+  <div class="tag">// <b>notebook</b> :: learning path into security operations</div>
+  <h1 class="glitch" data-t="{{ site.title }}">{{ site.title }}</h1>
+  <p class="sub">{{ site.description }}</p>
+</section>
+
+<section id="folders">
+  <h2 class="label">&gt; folders</h2>
+  <div class="folders">
+  {% for f in site.data.folders %}
+    {% assign items = site.categories[f.slug] %}
+    <a class="folder" href="{{ '/folders/' | append: f.slug | append: '/' | relative_url }}">
+      <span class="tab">{{ f.title }}/</span>
+      <span class="count">{{ items | size }} item{% if items.size != 1 %}s{% endif %}</span>
+      <span class="blurb">{{ f.blurb }}</span>
+      <span class="files">
+        {% if items.size > 0 %}
+          {% for p in items limit:3 %}<span class="file">{{ p.title | truncate: 46 }}</span>{% endfor %}
+        {% else %}
+          <span class="file empty">empty, for now</span>
+        {% endif %}
+      </span>
+    </a>
+  {% endfor %}
+  </div>
+</section>
+
+<section>
+  <h2 class="label">&gt; recent</h2>
+  <ul class="recent">
+  {% for post in site.posts limit:6 %}
+    <li><span class="date">{{ post.date | date: "%Y-%m-%d" }}</span>
+        <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        {% if post.categories.first %}<span class="chip">{{ post.categories.first }}</span>{% endif %}</li>
+  {% else %}
+    <li class="empty">nothing yet</li>
+  {% endfor %}
+  </ul>
+</section>

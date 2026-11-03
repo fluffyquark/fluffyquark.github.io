@@ -1,0 +1,11 @@
+---
+layout: default
+---
+<article class="post">
+  <div class="tag"><a href="{{ '/' | relative_url }}#folders">~/folders</a>
+    {% if page.categories.first %} / <a href="{{ '/folders/' | append: page.categories.first | append: '/' | relative_url }}">{{ page.categories.first }}</a>{% endif %}
+    &middot; {{ page.date | date: "%Y-%m-%d" }}</div>
+  <h1 class="glitch post-title" data-t="{{ page.title | escape }}">{{ page.title | escape }}</h1>
+  <div class="content">{{ content }}</div>
+  <p class="back"><a href="{{ '/' | relative_url }}#folders">&larr; all folders</a></p>
+</article>

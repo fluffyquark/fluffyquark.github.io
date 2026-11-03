@@ -1,0 +1,18 @@
+---
+layout: default
+---
+{% assign items = site.categories[page.folder] %}
+<section class="hero small">
+  <div class="tag"><a href="{{ '/' | relative_url }}#folders">~/folders</a> / <b>{{ page.folder }}</b></div>
+  <h1 class="glitch" data-t="{{ page.folder }}/">{{ page.folder }}/</h1>
+  <p class="sub">{% for f in site.data.folders %}{% if f.slug == page.folder %}{{ f.blurb }}{% endif %}{% endfor %}</p>
+</section>
+<ul class="recent">
+{% for post in items %}
+  <li><span class="date">{{ post.date | date: "%Y-%m-%d" }}</span>
+      <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></li>
+{% else %}
+  <li class="empty">empty, for now</li>
+{% endfor %}
+</ul>
+<p class="back"><a href="{{ '/' | relative_url }}#folders">&larr; all folders</a></p>
