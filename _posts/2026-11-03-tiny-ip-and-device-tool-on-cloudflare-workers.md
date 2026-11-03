@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "A public IP and device lookup tool on Cloudflare Workers, and why public is fine"
-date: 2026-11-03 09:00:00 +1000
+date: 2026-11-03 12:00:00 +1000
 categories: [tools]
 ---
 
